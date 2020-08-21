@@ -23,7 +23,7 @@ export default class SignUp extends Component {
   register = (event) => {
     event.preventDefault();
     document.getElementById("clear").reset();
-    fetch(" /register", {
+    fetch("https://academlo-todolist.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
