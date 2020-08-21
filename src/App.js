@@ -9,7 +9,7 @@ import SignUp from './components/signUp';
 import NotFound from './components/notfound';
 
 function App (){
-  const [isLogged, setLogged] = useState(true);
+  const [isLogged, setLogged] = useState(false);
   
   return (
     <div className="App">
