@@ -26,7 +26,7 @@ export default function Login (props) {
         body: JSON.stringify(login)
       };
 
-      let response = await fetch("/login",options);
+      let response = await fetch("https://academlo-todolist.herokuapp.com/login",options);
       let results = await response.json();
       if (response.ok) {
         props.setLogged(true);
