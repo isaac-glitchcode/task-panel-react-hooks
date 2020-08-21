@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Route, Redirect} from 'react-router-dom';
 import Icon from "../images/icon.png";
 import { useHistory } from "react-router-dom";
 import Swal from 'sweetalert2';
@@ -6,6 +7,7 @@ import Swal from 'sweetalert2';
 
 export default function Login (props) {
   const [login, setLogin] = useState({email:"", password:""});
+  const [signUp, setSignUp] = useState(false);
   const history = useHistory();
 
   const alertError = () => {
@@ -39,11 +41,20 @@ export default function Login (props) {
       console.log(results);
   };
 
+  const signUpFn = () =>{
+    setSignUp(true)
+  }
+
+
+
   return (
-      <div className="form">
+      <Route>
+        <div className="form">
+
           <div>
               <img src={Icon} alt=""/>
           </div>
+
           <form onSubmit={loginFn} onInput={(event) =>
               setLogin({ ...login, [event.target.name]: event.target.value })
               }>
@@ -51,8 +62,13 @@ export default function Login (props) {
               <span></span> <input name="password" type="password" placeholder="Password" />
               <input type="submit" value="Iniciar Sesión"/>
           </form> 
-          <p className="count">Don't have an account? <a href="/signup">Sign up now</a></p>
-      </div> 
+
+          <p className="count">Don't have an account? <button className="btnSignUp" onClick={signUpFn} >Sign up now</button></p>
+
+          {signUp? <Redirect to="/signUp"/>:<div></div>}
+
+        </div>
+      </Route> 
   );
   
 }
