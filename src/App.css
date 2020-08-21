@@ -1,18 +1,25 @@
+body{
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSgx0nedirMiTBTOospkkpInxytm51TFEGq0Q&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+  /* background: #004877; */
+  background: #2c2c2c;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,11 +35,206 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.form{
+  display: flex;
+  justify-content: center;
+  margin: 50px 30%;
+  flex-direction: column;
+  border:1px solid #2f2f2f;
+  border-radius: 20px;
+  /* background: linear-gradient(#000c14, #004877); */
+  background: linear-gradient(#272727, rgb(32, 32, 32));
+  align-items: center;
+  text-align: center;
+  padding: 2% 0;
+}
+.form>form{
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+.form > form > input {
+  border: 0;
+  margin-bottom: 1em;
+  padding: 8px 15px;
+  border-bottom: 1px solid gray;
+  background-color: transparent;
+  outline: none;
+  width: 90%;
+  color: #d0e0fd;
+  margin: auto;
+}
+.form input[type="submit"]{
+  cursor:pointer;
+  width: 50%;
+  margin: auto;
+  border: 1px solid transparent;
+  background-color: #0b4870;
+  margin-top: 8%;
+  transition: all .3s ;
+}
+
+.form input[type="submit"]:active{
+  background-color: #5b6772d7;
+  border-right: 1px solid #898a8b;
+  border-top: 1px solid #898a8b;
+  border-left: 1px solid #5b5b5c;
+  border-bottom: 1px solid #5b5b5c;
+  box-shadow: inset 0 0 2px 2px #999;
+  transition: all .3s ;
+  
+}
+.form input[type="submit"]:hover{
+  background-color: #0d3e5f;
+  transition: all .3s ;
+}
+.form>div>img{
+  width: 80px;
+  margin-bottom: 20px;
+}
+.count{
+  color: antiquewhite;
+  margin-top: 5%;
+} 
+.card{
+  color:white;
+  background-color: rgb(32, 32, 32);
+  margin:1rem ;
+  transition: all .2s ease-in;
+}
+.card:hover{
+
+  box-shadow: 0 0px 5px 2px rgb(172, 170, 170);
+  transition: all .2s ease-in;
+
+}
+.card-body div{
+  margin-bottom: 1em;
+}
+.card-body div>input[type="date"],
+.card-body div>input[type="text"]{
+  border: 0;
+  margin-bottom: 1em;
+  padding: 8px 15px;
+  border-bottom: 1px solid gray;
+  background-color: transparent;
+  outline: none;
+  width: 90%;
+  color: #d0e0fd;
+  margin: auto;
+  overflow: hidden;
+}
+.card-body>div{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.editar>img{
+  width: 40px;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  
+}
+.inputUpdate, .inputSearch{
+  border: 0;
+  background-color: transparent;
+  color: white;
+}
+.inputSearch{
+  border: 0;
+  border-bottom: 1px solid gray;
+  background-color: transparent;
+  color: white;
+  
+}
+.inputUpdate:focus, .inputSearch{
+  outline: none;
+  
+}
+
+.card-footer{
+  display:flex;
+  justify-content: space-evenly;
+}
+.c-w{
+  color:white;
+}
+.panel{
+  position: absolute;
+  width: 100%;
+  
+}
+.panel>div{
+  border:1px solid rgba(62, 95, 138,.3);
+  width: 60%;
+  margin: auto;
+}
+.filter{
+  margin: 2em;
+  position: relative;
+}
+.filter>select:focus{
+ 
+  border: 0;
+  
+}
+
+.filter>select{
+  appearance: none;
+  margin-top:1rem;
+  width: 90%;
+  border: 0;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  text-align-last: center;
+}
+.filter option{
+  
+  color:black;
+  text-align: center;
+}
+
+
+.filter i{
+	position: absolute;
+	right: 80px;
+	top: calc(70%);
+	width: 12px;
+	height: 12px;
+	display: block;
+	border-left:2px solid #e7ecea;
+	border-bottom:2px solid #e0e4e2;
+	transform: rotate(-45deg); /* Giramos el cuadrado */
+  transition: all 0.25s ease;
+  z-index: -1;
+}
+
+
+.error404{
+  position: relative;
+}
+.error404>img{
+  width: 100%;
+  
+}
+.error404>a{
+  width: 100px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+  top:0;
+  margin-bottom: 20px;
+  border-radius:10px ;
+  padding: 20px;
+
 }
