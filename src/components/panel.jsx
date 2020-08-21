@@ -55,7 +55,7 @@ export default function PanelTasks(props){
 
   /**GET TASKS */
   const getTasks=async() =>{
-    const response = await fetch("/tasks");
+    const response = await fetch("https://academlo-todolist.herokuapp.com/tasks");
     const json = await response.json();
 
     console.log(response);
@@ -84,7 +84,7 @@ export default function PanelTasks(props){
       body: JSON.stringify(task)
     };
 
-    fetch("/tasks",options)
+    fetch("https://academlo-todolist.herokuapp.com/tasks",options)
       .then((response)=>{ 
         response.json()
         getTasks();
@@ -110,7 +110,7 @@ export default function PanelTasks(props){
       body: JSON.stringify(task)
     };
 
-    fetch(`/tasks/${id}`,options)
+    fetch(`https://academlo-todolist.herokuapp.com/tasks/${id}`,options)
     .then((response)=> response.json())
     .then(()=>{
       
@@ -123,7 +123,7 @@ export default function PanelTasks(props){
 
   /**DELETE TASK */
   const deleteTask = (id) => {
-    fetch(`/tasks/${id}`,{
+    fetch(`https://academlo-todolist.herokuapp.com/tasks/${id}`,{
       method:'DELETE'
     })
       .then(()=>{getTasks()})
