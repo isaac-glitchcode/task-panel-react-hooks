@@ -6,6 +6,7 @@ export default class SignUp extends Component {
   constructor(props){
     super(props);
     this.state={
+      login:false,
       formData:{},
       img:"https://image.flaticon.com/icons/png/512/306/306473.png"
     }
@@ -46,22 +47,27 @@ export default class SignUp extends Component {
     console.log(this.state.formData)
   };
 
-  
+   loginFn = () =>{
+    this.setState({login:true});
+  }
   render() {
     return ( 
-      <div className="form">
-        <div>
-          <img src={this.state.img} alt=""/>
-        </div>
-        <form onSubmit={this.register} onInput={this.setInputValue} id="clear">
-          <input name="name"     type="text"     placeholder="Name(s)" required/>
-          <input name="lastname" type="text"     placeholder="Lastname" required/>
-          <input name="email"    type="email"    placeholder="Email" required/>
-          <input name="password" type="password" placeholder="Password" required/>
-          <input type="submit" />
-        </form>
-        <p className="count">Have an account? <a href="/">Login now</a></p> 
-      </div> 
+      <Route>
+        <div className="form">
+          <div>
+            <img src={this.state.img} alt=""/>
+          </div>
+          <form onSubmit={this.register} onInput={this.setInputValue} id="clear">
+            <input name="name"     type="text"     placeholder="Name(s)" required/>
+            <input name="lastname" type="text"     placeholder="Lastname" required/>
+            <input name="email"    type="email"    placeholder="Email" required/>
+            <input name="password" type="password" placeholder="Password" required/>
+            <input type="submit" />
+          </form>
+          <p className="count">Have an account? <button className="btnSignUp" onClick={this.loginFn} >Login now</button></p>
+          {this.state.login? <Redirect to="/"/>:<div></div>} 
+        </div> 
+      </Route>
     );
   }
 }
