@@ -220,6 +220,18 @@ body{
 }
 
 
+.btnSignUp{
+  background-color: transparent;
+  border: 0;
+  color:rgb(14, 47, 236)
+}
+
+.btnSignUp:active{
+  
+  color:rgb(20, 45, 184);
+  outline:none;
+}
+
 .error404{
   position: relative;
 }
